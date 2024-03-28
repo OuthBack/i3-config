@@ -56,6 +56,9 @@
 	# kill focused window
 	bindsym Mod4+shift+q kill
 
+    # print screen
+    bindsym Print exec flameshot gui
+
 	# start dmenu (a program launcher)
 	#bindsym Mod4+d exec --no-startup-id dmenu_run
 	# A more modern dmenu replacement is rofi:
@@ -201,9 +204,14 @@ gaps inner 6
 gaps outer 3
  
 assign [class="vivaldi"] 1
+assign [class="obsidian"] 2
 assign [class="kitty"] 3
-for_window [class=kitty] focus
-for_window [class=(?i)vivaldi] focus
+assign [class="vesktop"] 4
+assign [class="discord"] 4
+assign [class="bitwarden"] 5
+assign [class="spotify"] 6
+# for_window [class=(?i)vivaldi] focus
+
 #border_radius 5
 #override-redirect = true
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -224,4 +232,20 @@ for_window [class=(?i)vivaldi] focus
 #######################################################################
 #exec i3-config-wizard
 exec --no-startup-id picom --config ~/.config/picom/picom.conf 
+exec --no-startup-id vivaldi
+exec --no-startup-id obsidian
+# Discord
+exec --no-startup-id vesktop
+exec --no-startup-id kitty
+exec --no-startup-id birwarden
+exec --no-startup-id barrier
+exec --no-startup-id spotify
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+
+for_window [class=(?i)vivaldi] assign 1
+for_window [class=(?i)obsidian] assign 2
+for_window [class=(?i)kitty] assign 3
+for_window [class=(?i)vesktop] assign 4
+for_window [class=(?i)discord] assign 4
+for_window [class=(?i)bitwarden] assign 5
+for_window [class=(?i)spotify] assign 6
