@@ -51,7 +51,7 @@
 	floating_modifier Mod4
 
 	# start a terminal
-	bindsym Mod4+Return exec kitty tmux
+	bindsym Mod4+Return exec kitty -e tmux
 
 	# kill focused window
 	bindsym Mod4+shift+q kill
@@ -236,8 +236,8 @@ exec --no-startup-id vivaldi
 exec --no-startup-id obsidian
 # Discord
 exec --no-startup-id vesktop
-exec --no-startup-id kitty
-exec --no-startup-id birwarden
+exec --no-startup-id kitty -e tmux
+exec --no-startup-id bitwarden
 exec --no-startup-id barrier
 exec --no-startup-id spotify
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
@@ -248,4 +248,7 @@ for_window [class=(?i)kitty] assign 3
 for_window [class=(?i)vesktop] assign 4
 for_window [class=(?i)discord] assign 4
 for_window [class=(?i)bitwarden] assign 5
+for_window [class=(?i)bitwarden] move to workspace 5
 for_window [class=(?i)spotify] assign 6
+for_window [class=(?i)spotify] move to workspace 6
+
