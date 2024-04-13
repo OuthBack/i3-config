@@ -251,4 +251,5 @@ for_window [class=(?i)bitwarden] assign 5
 for_window [class=(?i)bitwarden] move to workspace 5
 for_window [class=(?i)spotify] assign 6
 for_window [class=(?i)spotify] move to workspace 6
+for_window [class="Emulator"] resize set width 565 height 300
 
