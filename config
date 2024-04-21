@@ -169,7 +169,6 @@
 	# exit i3 (logs you out of your X session)
 	#bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 	bindsym Mod4+Shift+e exec sh ~/.config/rofi/applets/menu/powermenu.sh
-	bindsym Mod4+Shift+s exec sh ~/.config/rofi/applets/menu/screenshot.sh
 # resize window (you can also use the mouse for that)
 mode "resize"{
         # These bindings trigger as soon as you enter the resize mode
@@ -235,7 +234,7 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id vivaldi
 exec --no-startup-id obsidian
 # Discord
-exec --no-startup-id vesktop
+# exec --no-startup-id vesktop
 exec --no-startup-id kitty -e tmux
 exec --no-startup-id bitwarden
 exec --no-startup-id barrier
