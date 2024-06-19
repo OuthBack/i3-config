@@ -110,7 +110,7 @@
 	bindsym Mod4+Shift+space floating toggle
 
 	# change focus between tiling / floating windows
-	bindsym Mod4+d focus mode_toggle
+	# bindsym Mod4+d focus mode_toggle
 
 	# focus the parent container
 	bindsym Mod4+a focus parent
@@ -169,86 +169,86 @@
 	# exit i3 (logs you out of your X session)
 	#bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 	bindsym Mod4+Shift+e exec sh ~/.config/rofi/applets/menu/powermenu.sh
-# resize window (you can also use the mouse for that)
-mode "resize"{
-        # These bindings trigger as soon as you enter the resize mode
+    # resize window (you can also use the mouse for that)
+    mode "resize"{
+            # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+            # Pressing left will shrink the window’s width.
+            # Pressing right will grow the window’s width.
+            # Pressing up will shrink the window’s height.
+            # Pressing down will grow the window’s height.
+            bindsym $left       resize shrink width 10 px or 10 ppt
+            bindsym $down       resize grow height 10 px or 10 ppt
+            bindsym $up         resize shrink height 10 px or 10 ppt
+            bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+            # same bindings, but for the arrow keys
+            bindsym Left        resize shrink width 10 px or 10 ppt
+            bindsym Down        resize grow height 10 px or 10 ppt
+            bindsym Up          resize shrink height 10 px or 10 ppt
+            bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or Mod4+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Mod4+r mode "default"
-}
+            # back to normal: Enter or Escape or Mod4+r
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+            bindsym Mod4+r mode "default"
+    }
 
-bindsym Mod4+r mode "resize"
+    bindsym Mod4+r mode "resize"
 
-client.unfocused              #00000000 #00000000 #00000000
-client.focused              #00000000 #00000000 #00000000
-#gaps
-gaps inner 6
-gaps outer 3
- 
-assign [class="vivaldi"] 1
-assign [class="obsidian"] 2
-assign [class="kitty"] 3
-assign [class="vesktop"] 4
-assign [class="discord"] 4
-assign [class="bitwarden"] 5
-assign [class="spotify"] 6
-# for_window [class=(?i)vivaldi] focus
+    client.unfocused              #00000000 #00000000 #00000000
+    client.focused              #00000000 #00000000 #00000000
+    #gaps
+    gaps inner 6
+    gaps outer 3
+     
+    assign [class="vivaldi"] 1
+    assign [class="obsidian"] 2
+    assign [class="kitty"] 3
+    assign [class="vesktop"] 4
+    assign [class="discord"] 4
+    assign [class="bitwarden"] 5
+    assign [class="spotify"] 6
+    # for_window [class=(?i)vivaldi] focus
 
-#border_radius 5
-#override-redirect = true
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
+    #border_radius 5
+    #override-redirect = true
+    # Start i3bar to display a workspace bar (plus the system information i3status
+    # finds out, if available)
+    #bar {
+    #        status_command i3status
+    #}
 
-#######################################################################
-# automatically start i3-config-wizard to offer the user to create a
-# keysym-based config which used their favorite modifier (alt or windows)
-#
-# i3-config-wizard will not launch if there already is a config file
-# in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
-# ~/.i3/config.
-#
-# Please remove the following exec line:
-#######################################################################
-#exec i3-config-wizard
-exec --no-startup-id picom --config ~/.config/picom/picom.conf 
-exec --no-startup-id vivaldi
-exec --no-startup-id obsidian
-# Discord
-# exec --no-startup-id vesktop
-exec --no-startup-id kitty -e tmux
-exec --no-startup-id bitwarden
-exec --no-startup-id barrier
-exec --no-startup-id spotify
-exec_always --no-startup-id sh ~/.config/polybar/launch.sh
+    #######################################################################
+    # automatically start i3-config-wizard to offer the user to create a
+    # keysym-based config which used their favorite modifier (alt or windows)
+    #
+    # i3-config-wizard will not launch if there already is a config file
+    # in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
+    # ~/.i3/config.
+    #
+    # Please remove the following exec line:
+    #######################################################################
+    #exec i3-config-wizard
+    exec --no-startup-id picom --config ~/.config/picom/picom.conf 
+    exec --no-startup-id vivaldi
+    exec --no-startup-id obsidian
+    # Discord
+    # exec --no-startup-id vesktop
+    exec --no-startup-id kitty -e tmux
+    exec --no-startup-id bitwarden
+    exec --no-startup-id barrier
+    exec --no-startup-id spotify
+    exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
-for_window [class=(?i)vivaldi] assign 1
-for_window [class=(?i)obsidian] assign 2
-for_window [class=(?i)kitty] assign 3
-for_window [class=(?i)vesktop] assign 4
-for_window [class=(?i)discord] assign 4
-for_window [class=(?i)bitwarden] assign 5
-for_window [class=(?i)bitwarden] move to workspace 5
-for_window [class=(?i)spotify] assign 6
-for_window [class=(?i)spotify] move to workspace 6
-for_window [class="Emulator"] resize set width 565 height 300
+    for_window [class=(?i)vivaldi] assign 1
+    for_window [class=(?i)obsidian] assign 2
+    for_window [class=(?i)kitty] assign 3
+    for_window [class=(?i)vesktop] assign 4
+    for_window [class=(?i)discord] assign 4
+    for_window [class=(?i)bitwarden] assign 5
+    for_window [class=(?i)bitwarden] move to workspace 5
+    for_window [class=(?i)spotify] assign 6
+    for_window [class=(?i)spotify] move to workspace 6
+    for_window [class="Emulator"] resize set width 565 height 300
 
